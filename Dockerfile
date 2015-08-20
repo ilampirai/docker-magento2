@@ -41,6 +41,7 @@ RUN chmod 755 /*.sh
 RUN mkdir -p /var/run/sshd
 RUN echo "root:admin123" | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -i '$a\PermitRootLogin yes' /etc/ssh/ssh_config
 
 # config to enable .htaccess
 ADD apache_default /etc/apache2/sites-available/000-default.conf
